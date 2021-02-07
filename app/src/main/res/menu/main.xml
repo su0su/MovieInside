@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_lotte"
+        android:title="롯데시네마" />
+    <item
+        android:id="@+id/action_cgv"
+        android:title="CGV" />
+    <item
+        android:id="@+id/action_megabox"
+        android:title="메가박스" />
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="home"
+        app:showAsAction="ifRoom" />
+</menu>
