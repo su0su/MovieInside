@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -9,53 +10,59 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.GsonBuilder
 import okhttp3.*
+import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.io.IOException
 import java.net.URL
 import java.net.URLEncoder
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity() {
+
+    //API 연동
     val clientId = "yNz2rAgBD7KMMfeVeL7C"
     val clientSecret = "ITIJHWfc25"
 
-    lateinit var button_search : Button
+    //영화 검색 페이지
+    lateinit var button_search: Button
     lateinit var calenderButton: Button
     lateinit var editText_keyward: EditText
-    lateinit var recyclerView : RecyclerView
+    lateinit var recyclerView: RecyclerView
     lateinit var webView: WebView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setTitle("Movie Inside")
 
-        button_search=findViewById(R.id.button_search)
-        calenderButton=findViewById(R.id.button_search)
-        editText_keyward=findViewById(R.id.editText)
-        recyclerView=findViewById(R.id.recyclerView)
-        webView=findViewById(R.id.webView)
+        //영화 검색 페이지
+        button_search = findViewById(R.id.button_search)
+        calenderButton = findViewById(R.id.calenderButton)
+        editText_keyward = findViewById(R.id.editText)
+        recyclerView = findViewById(R.id.recyclerView)
+        webView = findViewById(R.id.webView)
 
 
-        webView.apply{
-            settings.javaScriptEnabled=true
-            webViewClient= WebViewClient()
+        /**********************************영화 검색 페이지****************************************/
+        //웹뷰
+        webView.apply {
+            settings.javaScriptEnabled = true
+            webViewClient = WebViewClient()
         }
 
-        calenderButton.setOnClickListener{
-            webView.loadUrl(R.layout.activity_main.toString())
+        calenderButton.setOnClickListener {
+            val nextIntent = Intent (this, CalenderActivity::class.java)
+            startActivity(nextIntent)
         }
 
         button_search.setOnClickListener({
-            //키워드 없으면
             if (editText_keyward.text.isEmpty()) {
                 return@setOnClickListener
             }
@@ -67,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             recyclerView.layoutManager =
                     LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             recyclerView.setHasFixedSize(true)
+
             //API
             fetchJson(editText_keyward.text.toString())
 
@@ -77,13 +85,14 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /*********************영화 검색 페이지*********************************/
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main,menu)
+        menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId){
+        when (item?.itemId) {
             R.id.action_home -> {
                 webView.loadUrl(R.layout.activity_main.toString())
             }
@@ -184,14 +193,15 @@ class RecyclerViewAdapter(val homefeed: Homefeed): RecyclerView.Adapter<Recycler
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
         holder.bindItems(homefeed.items.get(position))
     }
+
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         fun bindItems(data: Item) {
             var imageView: ImageView = view.findViewById(R.id.imageView)
             Glide.with(view.context).load(data.image)
-                .apply(RequestOptions().override(300, 450))
-                .apply(RequestOptions.centerCropTransform())
-                .into(imageView)
+                    .apply(RequestOptions().override(300, 450))
+                    .apply(RequestOptions.centerCropTransform())
+                    .into(imageView)
             itemView.findViewById<TextView>(R.id.textView_title).text = data.title
             itemView.findViewById<TextView>(R.id.textView_actor).text = "출연 ${data.actor}"
             itemView.findViewById<TextView>(R.id.textView_director).text = "감독 ${data.director}"
