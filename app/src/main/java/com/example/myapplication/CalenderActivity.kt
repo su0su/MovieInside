@@ -9,7 +9,6 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 
 class CalenderActivity : MainActivity() {
-    //캘린더 페이지
     var fname: String = ""
     var str: String = ""
     var fname2: String = ""
