@@ -34,7 +34,6 @@ class CalenderActivity : MainActivity() {
         setContentView(R.layout.calender)
         setTitle("Movie Inside")
 
-        //캘린더 페이지
         calendarView = findViewById(R.id.calendarView)
         diaryTextView = findViewById(R.id.diaryTextView)
         save_Btn = findViewById(R.id.save_Btn)

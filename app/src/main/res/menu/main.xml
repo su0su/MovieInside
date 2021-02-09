@@ -11,9 +11,4 @@
     <item
         android:id="@+id/action_megabox"
         android:title="메가박스" />
-    <item
-        android:id="@+id/action_home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="home"
-        app:showAsAction="ifRoom" />
 </menu>

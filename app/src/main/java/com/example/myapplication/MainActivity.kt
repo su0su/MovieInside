@@ -93,9 +93,6 @@ open class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
-            R.id.action_home -> {
-                webView.loadUrl(R.layout.activity_main.toString())
-            }
             R.id.action_lotte -> {
                 val i = Intent(Intent.ACTION_VIEW)
                 i.data = Uri.parse("https://www.lottecinema.co.kr/NLCHS")
