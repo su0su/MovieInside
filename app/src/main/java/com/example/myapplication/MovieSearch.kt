@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,10 +32,20 @@ open class MovieSearch : AppCompatActivity() {
 
 
     lateinit var button_search: Button          //검색 버튼
+    lateinit var button_sr: Button
+    lateinit var button_sad: Button
+    lateinit var button_good: Button
+    lateinit var button_seen: Button
+    lateinit var button_later: Button
+    lateinit var button_netflex: Button
+    lateinit var button_watcha: Button
+    lateinit var button_youtube: Button
     lateinit var calenderButton: Button         //나만의 캘린더 페이지로 이동 버튼
+
     lateinit var editText_keyward: EditText     //영화 제목 입력 edittext
     lateinit var recyclerView: RecyclerView     //검색 결과 나오는 recyclerView
     lateinit var webView: WebView               //영화 예매 사이트 webView
+    lateinit var textview6: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +54,19 @@ open class MovieSearch : AppCompatActivity() {
         setTitle("Movie Inside") //앱 이름
 
         button_search = findViewById(R.id.button_search)          //검색 버튼
+        button_sr = findViewById(R.id.button_sr)
+        button_sad = findViewById(R.id.button_sad)
+        button_good = findViewById(R.id.button_good)
+        button_seen = findViewById(R.id.button_seen)
+        button_later = findViewById(R.id.button_later)
+        button_netflex = findViewById(R.id.button_netflex)
+        button_watcha = findViewById(R.id.button_watcha)
+        button_youtube = findViewById(R.id.button_youtube)
         calenderButton = findViewById(R.id.calenderButton)        //나만의 캘린더 페이지로 이동 버튼
         editText_keyward = findViewById(R.id.editText)            //영화 제목 입력 edittext
         recyclerView = findViewById(R.id.recyclerView)            //검색 결과 나오는 recyclerView
         webView = findViewById(R.id.webView)                       //영화 예매 사이트 webView
+        textview6=findViewById(R.id.textView6)
 
         //
         webView.apply {
@@ -62,6 +82,16 @@ open class MovieSearch : AppCompatActivity() {
 
         //검색 버튼 클릭 시 API 연동 후 조회
         button_search.setOnClickListener({
+            button_sad.visibility = View.VISIBLE
+            button_good.visibility = View.VISIBLE
+            button_later.visibility = View.VISIBLE
+            button_seen.visibility = View.VISIBLE
+            button_netflex.visibility = View.VISIBLE
+            button_watcha.visibility = View.VISIBLE
+            button_youtube.visibility = View.VISIBLE
+            calenderButton.visibility = View.VISIBLE
+            textview6.visibility=View.VISIBLE
+
             //아무것도 입력하지 않았다면
             if (editText_keyward.text.isEmpty()) {
                 return@setOnClickListener
@@ -81,7 +111,47 @@ open class MovieSearch : AppCompatActivity() {
             //메인 엑티비티가 로드될 때 키보드 숨기기
             val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(editText_keyward.windowToken, 0)
+
         })
+
+        button_sad.setOnClickListener{
+            Toast.makeText(applicationContext, "마음에 들지 않으셨군요 ㅠㅠ", Toast.LENGTH_SHORT).show()
+        }
+
+        button_good.setOnClickListener{
+            Toast.makeText(applicationContext, "이 영화가 마음에 드셨군요! \n나만의 캘린더에 작성해보는건 어때요?", Toast.LENGTH_SHORT).show()
+        }
+
+        button_sr.setOnClickListener{
+            Toast.makeText(applicationContext, "아직 준비중이에용", Toast.LENGTH_SHORT).show()
+        }
+
+        button_later.setOnClickListener{
+            button_later.setBackgroundColor(Color.BLUE)
+        }
+
+        button_seen.setOnClickListener{
+            button_seen.setBackgroundColor(Color.BLUE)
+        }
+
+        button_netflex.setOnClickListener{
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse("https://www.netflix.com")
+            startActivity(i)
+        }
+
+        button_watcha.setOnClickListener{
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse("https://watcha.com/")
+            startActivity(i)
+        }
+
+        button_youtube.setOnClickListener{
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse("https://www.youtube.com/")
+            startActivity(i)
+        }
+
     }
 
     //옵션메뉴 리소스 지정
@@ -164,7 +234,7 @@ open class MovieSearch : AppCompatActivity() {
     }
 }
 
-//데이터 클래스
+//API에서 제공해주는 데이터 클래스
 data class Homefeed(val items: List<Item>)
 data class Item(
         val title: String,
@@ -174,7 +244,7 @@ data class Item(
         val pubDate: String,
         val director: String,
         val actor: String,
-        val usrRating: String
+        val userRating: String
 )
 
 class RecyclerViewAdapter(val homefeed: Homefeed): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -202,12 +272,15 @@ class RecyclerViewAdapter(val homefeed: Homefeed): RecyclerView.Adapter<Recycler
         fun bindItems(data: Item) {
             var imageView: ImageView = view.findViewById(R.id.imageView)
             Glide.with(view.context).load(data.image)
-                    .apply(RequestOptions().override(300, 450))
+                    .apply(RequestOptions().override(270, 400))
                     .apply(RequestOptions.centerCropTransform())
                     .into(imageView)
+            itemView.findViewById<TextView>(R.id.textView_rating).text = data.userRating
+            itemView.findViewById<TextView>(R.id.textView_subtitle).text = data.subtitle
+            itemView.findViewById<TextView>(R.id.textView_date).text = data.pubDate
             itemView.findViewById<TextView>(R.id.textView_title).text = data.title
-            itemView.findViewById<TextView>(R.id.textView_actor).text = "출연 ${data.actor}"
-            itemView.findViewById<TextView>(R.id.textView_director).text = "감독 ${data.director}"
+            itemView.findViewById<TextView>(R.id.textView_actor).text = data.actor
+            itemView.findViewById<TextView>(R.id.textView_director).text = data.director
 
             //클릭시 웹사이트 연결
             itemView.setOnClickListener({
