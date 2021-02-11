@@ -1,13 +1,12 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.os.DropBoxManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class JoinActivity : AppCompatActivity() {
@@ -15,6 +14,7 @@ class JoinActivity : AppCompatActivity() {
     lateinit var dbManager:DBManager
     lateinit var sqlitedb:SQLiteDatabase
     lateinit var btnRegist: Button
+    lateinit var idCheck:Button
     lateinit var edtName: EditText
     lateinit var edtId: EditText
     lateinit var edtPwd: EditText
@@ -34,6 +34,7 @@ class JoinActivity : AppCompatActivity() {
         btnRegist=findViewById(R.id.btnRegister)
         edtName=findViewById(R.id.edtName)
         edtId=findViewById(R.id.edtId)
+        idCheck=findViewById(R.id.idCheck)
         edtPwd=findViewById(R.id.edtPwd)
         edtAge=findViewById(R.id.edtAge)
         edtTel=findViewById(R.id.edtTel)
@@ -42,6 +43,27 @@ class JoinActivity : AppCompatActivity() {
         rb_gender_f=findViewById(R.id.female)
 
         dbManager=DBManager(this,"personDB",null, 1)
+        
+        idCheck.setOnClickListener{
+            sqlitedb = dbManager.readableDatabase
+            val str_id:String=edtId.text.toString()
+
+            var cursor: Cursor
+            cursor = sqlitedb.rawQuery(
+                "SELECT * FROM person WHERE id = '" + str_id +"';",
+                null
+            )
+
+            if (cursor.getCount() > 0) {
+                Toast.makeText(this@JoinActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
+
+        } else {
+                    Toast.makeText(this@JoinActivity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
+                }
+            cursor.close()
+        }
+
+
         btnRegist.setOnClickListener{
             val str_name:String=edtName.text.toString()
             val str_id:String=edtId.text.toString()

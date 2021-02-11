@@ -35,6 +35,15 @@
             android:id="@+id/edtId"
             android:layout_width="100sp"
             android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/idCheck"
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:text="CHECK"
+            />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -116,10 +125,11 @@
 
         <Button
             android:id="@+id/btnRegister"
-            android:backgroundTint="#13264E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="등록" />
     </LinearLayout>
+
+
 </LinearLayout>
 
