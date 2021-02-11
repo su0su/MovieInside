@@ -48,6 +48,8 @@ class JoinActivity : AppCompatActivity() {
             var str_age:String=edtAge.text.toString()
             var str_tel:String=edtTel.text.toString()
 
+
+
             var str_gender:String=""
             if(rg_gender.checkedRadioButtonId==R.id.male){
                 str_gender=rb_gender_m.text.toString()
