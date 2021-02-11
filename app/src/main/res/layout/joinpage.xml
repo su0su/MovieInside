@@ -33,7 +33,7 @@
             android:text="아이디" />
         <EditText
             android:id="@+id/edtId"
-            android:layout_width="match_parent"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -48,7 +48,7 @@
         <EditText
             android:id="@+id/edtPwd"
             android:inputType="textPassword"
-            android:layout_width="match_parent"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -104,7 +104,7 @@
 
         <EditText
             android:id="@+id/edtTel"
-            android:layout_width="match_parent"
+            android:layout_width="130sp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 

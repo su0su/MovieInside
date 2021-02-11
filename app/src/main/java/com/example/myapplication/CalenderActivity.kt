@@ -59,7 +59,12 @@ class CalenderActivity : MovieSearch() {
             titleEditText.visibility = View.VISIBLE //제목 EditText가 Invisible
             titleText.visibility = View.INVISIBLE //저장된 제목 textView가 Invisible
 
-            diaryTextView.text = String.format("%d / %d / %d", year, month + 1, dayOfMonth)// 날짜를 보여주는 텍스트에 해당 날짜를 넣는다.
+            diaryTextView.text = String.format(
+                "%d / %d / %d",
+                year,
+                month + 1,
+                dayOfMonth
+            )// 날짜를 보여주는 텍스트에 해당 날짜를 넣는다.
 
             contextEditText.setText("") // 소감 EditText에 공백값 넣기
             ratingBar.setRating(0.0f) // 별점 ratingBar에 0값 주기
@@ -74,7 +79,8 @@ class CalenderActivity : MovieSearch() {
             saveDiary(fname) // saveDiary 메소드 호출
             saveRating(fname2) //saveRating 메소드 호출
             saveTitle(fname3) //saveTitle 메소드 호출
-            Toast.makeText(this@CalenderActivity, fname + "데이터를 저장했습니다.", Toast.LENGTH_SHORT).show()// 토스트 메세지
+            Toast.makeText(this@CalenderActivity, fname + "데이터를 저장했습니다.", Toast.LENGTH_SHORT)
+                .show()// 토스트 메세지
             str = contextEditText.getText().toString() // str 변수에 소감 edittext내용을 toString형으로 저장
             str2 = ratingBar.rating.toString() // str2 변수에 ratingBar의 별점을 toString형으로 저장
             flt = ratingBar.rating //flt 변수에 ratingBar의 별점을 Float형식으로 저장
@@ -96,8 +102,10 @@ class CalenderActivity : MovieSearch() {
     }
 
     fun checkedDay(cYear: Int, cMonth: Int, cDay: Int) {
-        fname = "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + ".txt" // 저장할 소감파일 이름 설정. Ex) 2019-01-20.txt
-        fname2 = "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + " rating.txt" // 저장할 별점파일 이름 설정.
+        fname =
+            "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + ".txt" // 저장할 소감파일 이름 설정. Ex) 2019-01-20.txt
+        fname2 =
+            "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + " rating.txt" // 저장할 별점파일 이름 설정.
         fname3 = "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + " title.txt" // 저장할 제목파일 이름 설정.
 
         var fis: FileInputStream? = null // FileStream fis 변수 설정
@@ -177,7 +185,8 @@ class CalenderActivity : MovieSearch() {
                 removeDiary(fname)
                 removeRating(fname2)
                 removeTitle(fname3)
-                Toast.makeText(this@CalenderActivity, fname + "데이터를 삭제했습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@CalenderActivity, fname + "데이터를 삭제했습니다.", Toast.LENGTH_SHORT)
+                    .show()
             }
 
             ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser -> //ratingBar 드래그 시 별점 나타내기

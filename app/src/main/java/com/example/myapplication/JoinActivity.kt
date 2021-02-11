@@ -25,6 +25,7 @@ class JoinActivity : AppCompatActivity() {
     lateinit var rb_gender_f:RadioButton
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.joinpage)
@@ -47,8 +48,6 @@ class JoinActivity : AppCompatActivity() {
             val str_pwd:String=edtPwd.text.toString()
             var str_age:String=edtAge.text.toString()
             var str_tel:String=edtTel.text.toString()
-
-
 
             var str_gender:String=""
             if(rg_gender.checkedRadioButtonId==R.id.male){
