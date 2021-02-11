@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
-class CalenderActivity : MainActivity() {
+class CalenderActivity : MovieSearch() {
     var fname: String = ""
     var str: String = ""
     var fname2: String = ""
