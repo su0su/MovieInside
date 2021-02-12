@@ -48,10 +48,6 @@ class MainActivity : AppCompatActivity() {
             )
 
             if (cursor.getCount() == 1) {
-                val dialog = AlertDialog.Builder(this@MainActivity)
-                dialog.setTitle("로그인 성공")
-                dialog.setMessage("로그인에 성공했습니다")
-                dialog.show()
                 val Movieintent = Intent(this, MovieSearch::class.java)
                 startActivity(Movieintent)
 

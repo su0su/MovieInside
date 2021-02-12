@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/navy"
     android:paddingTop="50dp"
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
@@ -14,12 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp">
         <TextView
+            android:textColor="@color/white"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:text="성명" />
         <EditText
+            android:textColor="@color/white"
             android:id="@+id/edtName"
-            android:layout_width="match_parent"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -28,10 +31,13 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp">
         <TextView
+            android:paddingTop="5dp"
+            android:textColor="@color/white"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:text="아이디" />
         <EditText
+            android:textColor="@color/white"
             android:id="@+id/edtId"
             android:layout_width="100sp"
             android:layout_height="wrap_content"/>
@@ -40,8 +46,7 @@
             android:id="@+id/idCheck"
             android:layout_width="90sp"
             android:layout_height="wrap_content"
-            android:text="CHECK"
-            />
+            android:text="CHECK" />
 
 
     </LinearLayout>
@@ -51,12 +56,13 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp">
         <TextView
+            android:textColor="@color/white"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:text="비밀번호" />
         <EditText
+            android:textColor="@color/white"
             android:id="@+id/edtPwd"
-            android:inputType="textPassword"
             android:layout_width="100sp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -65,21 +71,29 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="70dp">
+
         <TextView
+            android:paddingTop="15dp"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
-            android:text="성별" />
+            android:text="성별"
+            android:textColor="@color/white" />
+
         <RadioGroup
             android:id="@+id/gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="남"/>
             <RadioButton
+                android:buttonTint="@color/white"
+                android:textColor="@color/white"
                 android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,12 +106,14 @@
         android:layout_height="70dp">
 
         <TextView
+            android:textColor="@color/white"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:text="나이" />
         <EditText
+            android:textColor="@color/white"
             android:id="@+id/edtAge"
-            android:layout_width="match_parent"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -107,11 +123,13 @@
         android:layout_height="70dp">
 
         <TextView
+            android:textColor="@color/white"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:text="전화번호" />
 
         <EditText
+            android:textColor="@color/white"
             android:id="@+id/edtTel"
             android:layout_width="130sp"
             android:layout_height="wrap_content"/>
@@ -119,15 +137,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <Button
+
             android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="등록" />
+            android:text="JOIN" />
     </LinearLayout>
 
 

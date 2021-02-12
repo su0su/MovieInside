@@ -7,6 +7,18 @@
     android:background="#13264E"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_camera" />
+
     <EditText
         android:id="@+id/editId"
         android:layout_width="wrap_content"
@@ -18,7 +30,7 @@
         android:inputType="textPersonName"
         android:hint="ID"
         android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/editPwd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
-        android:text="SIGN-UP"
+        android:text="SIGN IN"
         android:textColor="#13264E"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,17 +77,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPwd" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <TextView
+        android:id="@+id/apptitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="150dp"
+        android:layout_marginTop="110dp"
+        android:gravity="center"
+        android:text="MOVIE INSIDE"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_camera" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
