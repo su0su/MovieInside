@@ -53,10 +53,12 @@ class MainActivity : AppCompatActivity() {
 
 
             } else {
-                val dialog = AlertDialog.Builder(this@MainActivity)
-                dialog.setTitle("로그인 오류")
-                dialog.setMessage("아이디 혹은 비밀번호를 다시 확인해 주세요")
-                dialog.show()
+
+                val dlg: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity,  android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth)
+                dlg.setTitle("Login Error")
+                dlg.setMessage("아이디 혹은 패스워드를 확인해 주세요")
+                dlg.setNegativeButton("확인",null)
+                dlg.show()
             }
             cursor.close()
         })
