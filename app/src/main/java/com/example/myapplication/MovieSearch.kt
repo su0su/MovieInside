@@ -74,6 +74,12 @@ open class MovieSearch : AppCompatActivity() {
 
         //검색 버튼 클릭 시 API 연동 후 조회
         button_search.setOnClickListener({
+            //아무것도 입력하지 않았다면
+            if (editText_keyward.text.length <= 0) {
+                Toast.makeText(applicationContext, "검색어를 입력해주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             //처음 페이지에서 버튼들과 텍스트뷰 안보이게
             button_sad.visibility = View.VISIBLE
             button_good.visibility = View.VISIBLE
@@ -84,11 +90,6 @@ open class MovieSearch : AppCompatActivity() {
             button_youtube.visibility = View.VISIBLE
             calenderButton.visibility = View.VISIBLE
             textview6.visibility=View.VISIBLE
-
-            //아무것도 입력하지 않았다면
-            if (editText_keyward.text.isEmpty()) {
-                return@setOnClickListener
-            }
 
             //리사이클러뷰를 리니어 레이아웃으로 배치
             recyclerView.layoutManager = LinearLayoutManager(this)
