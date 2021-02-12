@@ -79,7 +79,7 @@ class CalenderActivity : MovieSearch() {
             saveDiary(fname) // saveDiary 메소드 호출
             saveRating(fname2) //saveRating 메소드 호출
             saveTitle(fname3) //saveTitle 메소드 호출
-            Toast.makeText(this@CalenderActivity, fname + "데이터를 저장했습니다.", Toast.LENGTH_SHORT)
+            Toast.makeText(this@CalenderActivity, "데이터를 저장했습니다.", Toast.LENGTH_SHORT)
                 .show()// 토스트 메세지
             str = contextEditText.getText().toString() // str 변수에 소감 edittext내용을 toString형으로 저장
             str2 = ratingBar.rating.toString() // str2 변수에 ratingBar의 별점을 toString형으로 저장
@@ -185,7 +185,7 @@ class CalenderActivity : MovieSearch() {
                 removeDiary(fname)
                 removeRating(fname2)
                 removeTitle(fname3)
-                Toast.makeText(this@CalenderActivity, fname + "데이터를 삭제했습니다.", Toast.LENGTH_SHORT)
+                Toast.makeText(this@CalenderActivity, "데이터를 삭제했습니다.", Toast.LENGTH_SHORT)
                     .show()
             }
 
