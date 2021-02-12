@@ -56,7 +56,6 @@ class JoinActivity : AppCompatActivity() {
 
             if (cursor.getCount() > 0) {
                 Toast.makeText(this@JoinActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
-
         } else {
                     Toast.makeText(this@JoinActivity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
                 }
