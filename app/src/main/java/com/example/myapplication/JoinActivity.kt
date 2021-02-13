@@ -25,11 +25,10 @@ class JoinActivity : AppCompatActivity() {
     lateinit var rb_gender_f:RadioButton             //여성 라디오 버튼
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.joinpage)
-        setTitle("Movie Inside")
+        setTitle("Movie Inside")      //앱 이름
 
         btnRegist=findViewById(R.id.btnRegister)
         edtName=findViewById(R.id.edtName)
@@ -57,15 +56,13 @@ class JoinActivity : AppCompatActivity() {
                 null
             )
 
-            if (cursor.getCount() > 0) {      //아이디 존재할 시
+            if (cursor.getCount() > 0) {         //아이디 존재할 시
                 Toast.makeText(this@JoinActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
-        } else {                             //아이디 존재하지 않을 시
+            } else {                             //아이디 존재하지 않을 시
                     Toast.makeText(this@JoinActivity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
                 }
             cursor.close()
         }
-
-
 
 
         //등록(JOIN) 버튼 누를시
@@ -75,26 +72,22 @@ class JoinActivity : AppCompatActivity() {
             val str_pwd:String=edtPwd.text.toString()
             var str_age:String=edtAge.text.toString()
             var str_tel:String=edtTel.text.toString()
+
             var str_gender:String=""
             if(rg_gender.checkedRadioButtonId==R.id.male){
                 str_gender=rb_gender_m.text.toString()
             }
-            if(rg_gender.checkedRadioButtonId==R.id.female) {
+            if(rg_gender.checkedRadioButtonId==R.id.female) {23423
                 str_gender = rb_gender_f.text.toString()
             }
-
 
 
             sqlitedb=dbManager.writableDatabase                                 //데이터베이스에 저장되어 있는 내용 쓰기 허용
             sqlitedb.execSQL("INSERT INTO person VALUES ('"+str_name+"','"+str_id+"','"+str_pwd+"','"+str_gender+"',"+str_age+",'"+str_tel+"')") //입력받은 정보를 테이블에 넣어주는 쿼리
             sqlitedb.close()
+            Toast.makeText(this@JoinActivity, "가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
             val intent= Intent(this, MainActivity::class.java)
             startActivity(intent)                                               //가입 완료 후 로그인창으로 복귀
         }
-
-
     }
-
-
-
 }
