@@ -149,7 +149,7 @@ open class MovieSearch : AppCompatActivity() {
         //찜하기 버튼 클릭 시
         button_zzim.setOnClickListener {
             if (b % 2 ==0 ) {
-                button_zzim.setBackgroundColor(Color.RED)                                           //백그라운드 컬러를 빨간색으로 지정
+                button_zzim.setBackgroundColor(Color.RED)                                         //백그라운드 컬러를 빨간색으로 지정
                 b++
             } else {
                 button_zzim.setBackgroundColor(Color.parseColor("#13264e"))            //다시 클릭하면 원래 백그라운드 컬러로
