@@ -192,7 +192,7 @@ class CalenderActivity : MovieSearch() {
                 ratingText.visibility = View.INVISIBLE
                 titleText.visibility = View.INVISIBLE
                 contextEditText.setText("")
-                ratingText.setText("")
+                ratingBar.setRating(0.0f)
                 titleEditText.setText("")
                 contextEditText.visibility = View.VISIBLE
                 ratingBar.visibility = View.VISIBLE
