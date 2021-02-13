@@ -50,7 +50,6 @@
         app:layout_constraintTop_toTopOf="@+id/contextEditText"
         app:layout_constraintVertical_bias="0.0" />
 
-
     <EditText
         android:id="@+id/contextEditText"
         android:layout_width="384dp"
