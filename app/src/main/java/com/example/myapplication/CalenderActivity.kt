@@ -9,32 +9,32 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 
 class CalenderActivity : MovieSearch() {
-    var fname: String = ""
-    var str: String = ""
-    var fname2: String = ""
-    var str2: String = ""
-    var flt: Float = 0.0f
-    var fname3: String = ""
-    var str3: String = ""
+    var fname: String = ""          //소감 파일 이름
+    var str: String = ""            //소감 내용
+    var fname2: String = ""         //별점 파일 이름
+    var str2: String = ""           //별점 내용(String)
+    var flt: Float = 0.0f           //별점 내용(Float)
+    var fname3: String = ""         //제목 파일 이름
+    var str3: String = ""           //제목 내용
 
-    lateinit var calendarView: CalendarView
-    lateinit var diaryTextView: TextView
-    lateinit var save_Btn: Button
-    lateinit var contextEditText: EditText
-    lateinit var textView2: TextView
-    lateinit var cha_Btn: Button
-    lateinit var del_Btn: Button
-    lateinit var ratingBar: RatingBar
-    lateinit var ratingText: TextView
-    lateinit var titleEditText: EditText
-    lateinit var titleText: TextView
+    lateinit var calendarView: CalendarView             // 캘린더 뷰
+    lateinit var diaryTextView: TextView                // 날짜 표시 textView
+    lateinit var save_Btn: Button                       // 저장 버튼
+    lateinit var contextEditText: EditText              // 소감 입력 editText
+    lateinit var textView2: TextView                    // 소감 textView
+    lateinit var cha_Btn: Button                        // 수정 버튼
+    lateinit var del_Btn: Button                        // 삭제 버튼
+    lateinit var ratingBar: RatingBar                   // 별점 입력 ratingBar
+    lateinit var ratingText: TextView                   // 별점 textView
+    lateinit var titleEditText: EditText                // 제목 입력 editText
+    lateinit var titleText: TextView                    // 제목 textView
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calender)
-        setTitle("Movie Inside")
+        setTitle("Movie Inside")        // 앱 이름
 
 
         calendarView = findViewById(R.id.calendarView)
