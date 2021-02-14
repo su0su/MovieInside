@@ -325,12 +325,18 @@ class RecyclerViewAdapter(val homefeed: Homefeed): RecyclerView.Adapter<Recycler
                     .apply(RequestOptions().override(270, 400))
                     .apply(RequestOptions.centerCropTransform())
                     .into(imageView)
+            //문자 필터링
+            val title=data.title.replace("<b>","").replace("</b>","")
+            val director=data.director.replace("|","")
+            val actor= data.actor.replace("|",", ")
+            val subtitle=data.subtitle.replace("<b>","").replace("</b>","").replace("&amp;","&")
+
             itemView.findViewById<TextView>(R.id.textView_rating).text = data.userRating     //평점
-            itemView.findViewById<TextView>(R.id.textView_subtitle).text = data.subtitle     //영문 제목
+            itemView.findViewById<TextView>(R.id.textView_subtitle).text = subtitle     //영문 제목
             itemView.findViewById<TextView>(R.id.textView_date).text = data.pubDate          //개봉년도
-            itemView.findViewById<TextView>(R.id.textView_title).text = data.title           //영화 제목
-            itemView.findViewById<TextView>(R.id.textView_actor).text = data.actor           //출연진
-            itemView.findViewById<TextView>(R.id.textView_director).text = data.director     //감독
+            itemView.findViewById<TextView>(R.id.textView_title).text = title           //영화 제목
+            itemView.findViewById<TextView>(R.id.textView_actor).text = actor           //출연진
+            itemView.findViewById<TextView>(R.id.textView_director).text = director     //감독
 
 
             //이미지 클릭시 영화 웹사이트 연결

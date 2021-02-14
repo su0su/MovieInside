@@ -32,24 +32,25 @@
     <TextView
         android:id="@+id/textView_director"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="19dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/fugaz_one"
+        android:fontFamily="@font/nanumbarunpen_r"
         android:text="TextView"
         android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView_actor" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="42dp"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="8dp"
-        android:text="출연:"
+        android:text="출연: "
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -60,12 +61,12 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="42dp"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="감독:"
+        android:layout_marginEnd="1dp"
+        android:text="감독: "
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -77,13 +78,12 @@
     <TextView
         android:id="@+id/textView_actor"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="19dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="9dp"
-        android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/textView_director"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView_rating" />
 
@@ -115,11 +115,11 @@
         android:id="@+id/textView_date"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="8dp"
         android:text="TextView"
         android:textColor="#DADAD7"
         android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/textView_subtitle"
         app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
     <TextView
@@ -127,22 +127,10 @@
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="1dp"
         android:text="TextView"
         android:textColor="#DADAD7"
         android:textSize="11sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView9"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView_title" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:layout_marginEnd="1dp"
-        android:text="·"
-        app:layout_constraintEnd_toStartOf="@+id/textView_date"
-        app:layout_constraintStart_toEndOf="@+id/textView_subtitle"
         app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
